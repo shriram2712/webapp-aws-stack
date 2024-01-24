@@ -1,7 +1,7 @@
 # VPC OUTPUT
 output "vpc_id" {
   description = "id of created VPC."
-  value       = aws_vpc.vpc.vpc_id
+  value       = aws_vpc.vpc.id
 }
 
 # SUBNET OUTPUT   

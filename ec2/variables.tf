@@ -1,3 +1,7 @@
+variable "aws_region" {
+    default = "us-east-1"
+}
+
 variable "vpc_id" {
   description = "The VPC ID created by the previous component"
   type = string

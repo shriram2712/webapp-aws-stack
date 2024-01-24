@@ -1,9 +1,17 @@
+# DATA
+
+data "aws_availability_zones" "ad" {
+  state = "available"
+  filter {
+    name   = "region-name"
+    values =[var.aws_region]
+  }
+}
 
 # INSTANCE
 
 resource "aws_instance" "inst" {
   ami                          = var.instance_ami_id
-  availability_zone            = data.aws_availability_zones.ad.names[0]
   disable_api_termination      = false
   ebs_optimized                = false
   get_password_data            = false
