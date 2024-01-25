@@ -25,7 +25,7 @@ resource "aws_instance" "inst" {
   source_dest_check            = true
   subnet_id                    = var.subnet_id
   #user_data                    = var.user_data
-  user_data                    = templatefile("${path.module}/user_data.tpl")
+  user_data                    = templatefile("${path.module}/user_data.tpl", { name = "World" })
   vpc_security_group_ids       = [ var.vpc_dedicated_security_group_id ]  
   metadata_options {
       http_endpoint               = "enabled"
