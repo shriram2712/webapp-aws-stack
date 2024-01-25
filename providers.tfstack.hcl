@@ -5,6 +5,15 @@ required_providers {
   }
 }
 
+terraform {
+  required_providers {
+    template = {
+      source  = "hashicorp/template"
+      version = "~> 2.2.0"  # Specify the version you need
+    }
+  }
+}
+
 provider "aws" "config" {
   config {
     region = var.region
