@@ -3,14 +3,10 @@ required_providers {
     source  = "hashicorp/aws"
     version = "~> 5.7.0"
   }
-}
-
-terraform {
-  required_providers {
-    template = {
-      source  = "hashicorp/template"
-      version = "~> 2.2.0"  # Specify the version you need
-    }
+  
+  template = {
+    source  = "hashicorp/template"
+    version = "~> 2.2.0"  # Specify the version you need
   }
 }
 
