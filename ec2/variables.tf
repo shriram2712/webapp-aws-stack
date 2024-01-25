@@ -31,7 +31,7 @@ variable "instance_ami_id" {
 }
 
 variable "user_data" {
-  default = "<<-EOT
+  default =<<-EOT
     #!/bin/sh
     sudo apt-get update
     sudo apt --assume-yes install nginx
@@ -43,7 +43,7 @@ variable "user_data" {
     sudo git clone https://github.com/omeeomi/tf-cloud-demo-website /tmp/tf-cloud-demo-website
     sudo mkdir -p /var/www/html/
     sudo cp /tmp/tf-cloud-demo-website/index.html /var/www/html/index.html
-    EOT" 
+    EOT
 }
 
 variable "ebs_volume_enabled" {
