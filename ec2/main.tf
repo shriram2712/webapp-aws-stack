@@ -8,6 +8,11 @@ data "aws_availability_zones" "ad" {
   }
 }
 
+data "template_file" "init" {
+  template = file("${path.module}/user_data.tpl")
+}
+
+
 # INSTANCE
 
 resource "aws_instance" "inst" {
@@ -23,7 +28,8 @@ resource "aws_instance" "inst" {
   security_groups              = []
   source_dest_check            = true
   subnet_id                    = var.subnet_id
-  user_data                    = var.user_data
+  #user_data                    = var.user_data
+  user_data                    = data.template_file.init.rendered
   vpc_security_group_ids       = [ var.vpc_dedicated_security_group_id ]  
   metadata_options {
       http_endpoint               = "enabled"
