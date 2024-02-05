@@ -31,7 +31,7 @@ variable "instance_ami_id" {
 }
 
 variable "user_data" {
-  default = "user_data/ubto_userdata.txt"
+  default = "user_data/legacy_site.txt"
 }
 
 variable "ebs_volume_enabled" {

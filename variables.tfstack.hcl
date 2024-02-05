@@ -17,5 +17,5 @@ variable "default_tags" {
 }
 
 variable "user_data" {
-  default = "user_data/legacy_site.txt"
+  type = string
 }
