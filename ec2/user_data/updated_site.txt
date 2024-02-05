@@ -5,31 +5,32 @@ sudo ufw allow 'Nginx HTTP'
 sudo systemctl enable nginx
 sudo systemctl restart nginx
 
-# Create the index.html content directly
+# Create the index.html content
 sudo mkdir -p /var/www/html/
 sudo bash -c 'cat <<EOF > /var/www/html/index.html
 <!DOCTYPE html>
-<html lang="en">
+<!--[if lt IE 7]><html class="ie6 ie"><![endif]--><!--[if IE 7]><html class="ie7 ie"><![endif]--><!--[if IE 8]><html class="ie8 ie"><![endif]--><!--[if IE 9]><html class="ie9 ie"><![endif]-->
+<html lang="en" itemscope itemtype="https://schema.org/WebPage">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Terraform Cloud Demo</title>
-<style>
-body {font-family: Arial, sans-serif; color: #333; background-color: #fff; margin: 0; padding: 0;}
-header {background-color: #5C4EE5; color: #fff; padding: 20px; text-align: center;}
-.container {padding: 20px; text-align: center;}
-.intro {margin-bottom: 20px;}
-iframe {width: 100%; max-width: 985px; height: 554px; margin-top: 20px;}
-footer {background-color: #5C4EE5; color: #fff; text-align: center; padding: 10px; margin-top: 20px;}
-</style>
-</head>
+<link href="https://www.computerhope.com/ch.css" type="text/css" rel="stylesheet" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!--[if lt IE 9]><script src="https://www.computerhope.com/cdn/html5shiv.js"></script><![endif]-->
+<link rel="alternate" type="application/rss+xml" title="RSS-Feed" href="https://feeds.feedburner.com/LatestNewPagesOnComputerHope" />
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src=
+"https://www.googletagmanager.com/gtm.js?id="+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,"script","dataLayer","GTM-5F9B8P4");</script>
+<script async src="/cdn-cgi/challenge-platform/h/g/scripts/invisible.js?ts=1651532400"></script></head>
 <body>
-<header><h1>Terraform Cloud Demo Website</h1></header>
-<div class="container">
-<p class="intro">This website was deployed with Terraform configuration files from Terraform Cloud. For more information on how HashiCorp products can help with application delivery, click <a href="https://www.hashicorp.com/resources/application-delivery-hashicorp" style="color: #FFD580;">here</a>.</p>
-<iframe src="https://www.youtube.com/embed/wyRtz_tdJes" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
-<footer><p>Powered by Terraform Cloud</p></footer>
-</body>
-</html>
+<div class="skip"><a href="#main-content">Skip to Main Content</a></div>
+<div class="wrapper">
+<div class="container content" id="main-content" role="main">
+<article>
+<h1 itemprop="headline">Terraform Cloud Demo Website v2</h1>
+<p class="intro">This website was deployed with Terraform configuration files from Terraform Cloud. For more information on how HashiCorp products can help with application delivery, watch the below video or click <a href="https://www.hashicorp.com/resources/application-delivery-hashicorp">here</a>. </p>
+<iframe width="985" height="554" src="https://www.youtube.com/embed/wyRtz_tdJes" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</article>
 EOF'
