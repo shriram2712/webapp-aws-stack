@@ -8,7 +8,7 @@ deployment "test" {
     role_arn            = "arn:aws:iam::407603399482:role/oe_stacks_iam_role"
     identity_token_file = identity_token.aws.jwt_filename
     default_tags        = { stacks-preview-example = "webapp-ec2-stack-test" }
-    user_data           = "user_data/updated_site.txt"
+    user_data           = filebase64("${path.module}/user_data/updated_site.txt")
   }
 }
 
@@ -19,6 +19,6 @@ deployment "production" {
     role_arn            = "arn:aws:iam::407603399482:role/oe_stacks_iam_role"
     identity_token_file = identity_token.aws.jwt_filename
     default_tags        = { stacks-preview-example = "webapp-ec2-stack-production" }
-    user_data           = "user_data/legacy_site.txt"
+    user_data           = filebase64("${path.module}/user_data/legacy_site.txt")
   }
 }
