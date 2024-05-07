@@ -24,8 +24,8 @@ resource "aws_instance" "inst" {
   security_groups              = []
   source_dest_check            = true
   subnet_id                    = var.subnet_id
-  #user_data                    = "${path.module}/var.user_data"
-  user_data                    = filebase64("${path.module}/user_data/legacy_site.txt")
+  user_data                    = "${path.module}/var.user_data"
+  #user_data                    = filebase64("${path.module}/user_data/legacy_site.txt")
   vpc_security_group_ids       = [ var.vpc_dedicated_security_group_id ]  
   metadata_options {
       http_endpoint               = "enabled"
