@@ -1,8 +1,5 @@
 component "vpc" {
   source = "./vpc"
-  inputs = {
-    user_data  = var.user_data
-  }
   providers = {
     aws    = provider.aws.config
   }
