@@ -1,10 +1,10 @@
-# vpc-ec2-stack
+# webapp-aws-stack
 
 _This is an example stack configuration for the private preview of Terraform Stacks. Language
 constructs and features are subject to change given feedback received during this preview. Do not
 use Stacks for production workloads at this time._
 
-![vpc-ec2-stack](https://github.com/hashicorp/vpc-ec2-stack/assets/2430490/097154f9-ac54-40dc-a075-2181e1039739)
+![webapp-aws-stack](https://github.com/oeghaneyan/webapp-aws-stack/assets/56609570/ed579397-17c2-4aa8-a530-c9206cb00e76)
 
 This stack provisions an AWS virtual private cloud (VPC) using three availability zones and with six
 subnets using the popular AWS VPC Terraform module. An EC2 instance running the latest Ubuntu AMI is
