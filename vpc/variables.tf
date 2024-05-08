@@ -1,48 +1,44 @@
-# AWS REGION
-
 variable "aws_region" {
-    default = "us-east-1"
+  description = "The AWS Region for the VPC to be created in."
+  type = string
 }
 
-# VPC INFO
-
 variable "vpc_name" {
-  default = "tf-cloud-demo-oe-vpc"
+  description = "The name for the VPC."
+  default = "webapp-aws-vpc"
 }
 
 variable "vpc_cidr" {
+  description = "The CIDR block to be used by the VPC."
   default = "192.168.0.0/16"
 }
 
-# SUBNET INFO
-
 variable "subnet_name"{
-  default = "tf-cloud-demo-oe-sub" 
+  description = "The name for the VPC subnet."
+  default = "webapp-aws-sub" 
 }
   
 variable "subnet_cidr"{
+  description = "The CIDR block for the VPC subnet."
   default = "192.168.10.0/24"
 }
 
 variable "map_public_ip_on_launch" { 
-  description = "Indicate if instances launched into the VPC's Subnet will be assigned a public IP address . "
+  description = "Indicate if instances launched into the VPC's Subnet will be assigned a public IP address."
   default = true   
 }  
 
-# IGW INFO
-
 variable "igw_name"{
-  default = "tf-cloud-demo-oe-igw" 
+  description = "The name for the VPC internet gateway."
+  default = "webapp-aws-igw" 
 }
-
-# ROUTE TABLE INFO
 
 variable "rt_name"{
-  default = "tf-cloud-demo-oe-rt" 
+  description = "The Routing Table for the VPC."
+  default = "webapp-aws-rt" 
 }
 
-# SG INFO
-
 variable "sg_name"{
-  default = "tf-cloud-demo-oe-sg" 
+  description = "The Security Group for the VPC."
+  default = "webapp-aws-sg" 
 }  
