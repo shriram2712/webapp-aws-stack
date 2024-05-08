@@ -1,7 +1,7 @@
 component "vpc" {
   source = "./vpc"
   inputs = {
-    region = var.region
+    aws_region = var.aws_region
   }
   providers = {
     aws    = provider.aws.config
@@ -11,7 +11,7 @@ component "vpc" {
 component "ec2" {
   source = "./ec2"
   inputs = {
-    region                           = var.region
+    aws_region                           = var.aws_region
     vpc_id                           = component.vpc.vpc_id
     subnet_id                        = component.vpc.subnet_id
     map_public_ip_on_launch          = component.vpc.map_public_ip_on_launch
