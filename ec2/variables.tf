@@ -27,9 +27,9 @@ variable "instance_type" {
   default = "t2.micro"
 }
 
-variable "user_data" {
-  description = "The User Data file to be used for the site."
-}
+#variable "user_data" {
+#  description = "The User Data file to be used for the site."
+#}
 
 variable "ebs_volume_enabled" {
   description = "Flag to control the ebs creation."
@@ -53,4 +53,24 @@ variable "vol_name" {
   description = "The name of the EBS volume."
   type        = string
   default     = "vol_0"
+}
+
+variable "prefix" {
+  default     = "prefix"
+  description = "This prefix will be included in the name of most resources."
+}
+
+variable "theme" {
+  default     = "cat"
+  description = "Using the image-as-a-service URL - loremflickr.com. Some other fun ones to try are dog, elephant, space, etc."
+}
+
+variable "height" {
+  default     = "400"
+  description = "Image height in pixels."
+}
+
+variable "width" {
+  default     = "600"
+  description = "Image width in pixels."
 }

@@ -16,6 +16,14 @@ variable "default_tags" {
   default     = {}
 }
 
-variable "user_data" {
-  type = string
+#variable "user_data" {
+#  type = string
+#}
+
+variable "prefix" {
+  description = "This prefix will be included in the name of most resources."
+}
+
+variable "theme" {
+  description = "Using the image-as-a-service URL - loremflickr.com. Some other fun ones to try are dog, elephant, space, etc."
 }
