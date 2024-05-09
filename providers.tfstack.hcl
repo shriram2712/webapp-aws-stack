@@ -25,5 +25,4 @@ provider "aws" "config" {
   }
 }
 
-provider "template" "config" {
-}
+provider "template" "config" {}
