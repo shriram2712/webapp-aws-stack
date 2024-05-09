@@ -22,8 +22,10 @@ variable "default_tags" {
 
 variable "prefix" {
   description = "This prefix will be included in the name of most resources."
+  type = string
 }
 
 variable "theme" {
   description = "Using the image-as-a-service URL - loremflickr.com. Some other fun ones to try are dog, elephant, space, etc."
+  type = string
 }
