@@ -21,6 +21,7 @@ component "ec2" {
 #    user_data                       = var.user_data
   }
   providers = {
-    aws     = provider.aws.config
+    aws       = provider.aws.config
+    template  = provider.template.config
   }
 }
