@@ -40,7 +40,7 @@ resource "aws_instance" "inst" {
 #  user_data                    = filebase64("${path.module}/${var.user_data}")
 #  user_data                    = "${data.template_file.user_data.rendered}"
   user_data                    = templatefile(
-    "./user_data/user_data.tftpl", { 
+    "${path.root}/user_data/user_data.tftpl", { 
       THEME = "${var.theme}"
       WIDTH = "${var.width}"
       HEIGHT = "${var.height}"
