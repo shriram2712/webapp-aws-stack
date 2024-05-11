@@ -18,7 +18,7 @@ component "ec2" {
     vpc_dedicated_security_group_id  = component.vpc.vpc_dedicated_security_group_id
     prefix                           = var.prefix
     theme                            = var.theme
-#    user_data                       = var.user_data
+    user_data                       = var.user_data
   }
   providers = {
     aws       = provider.aws.config

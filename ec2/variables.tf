@@ -27,9 +27,9 @@ variable "instance_type" {
   default = "t2.micro"
 }
 
-#variable "user_data" {
-#  description = "The User Data file to be used for the site."
-#}
+variable "user_data" {
+  description = "The User Data file to be used for the site."
+}
 
 variable "ebs_volume_enabled" {
   description = "Flag to control the ebs creation."
