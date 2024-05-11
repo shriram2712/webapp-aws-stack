@@ -8,9 +8,9 @@ deployment "staging" {
     role_arn            = "arn:aws:iam::407603399482:role/oe_stacks_iam_role"
     identity_token_file = identity_token.aws.jwt_filename
     default_tags        = { stacks-preview-example = "webapp-aws-stack-staging" }
-    user_data           = "/user_data/version_1.txt"
-    prefix              = "staging"
-    theme               = "cat"
+#    user_data           = "/user_data/version_1.txt"
+    prefix              = "Staging"
+    theme               = "Cat"
   }
 }
 
@@ -21,8 +21,8 @@ deployment "production" {
     role_arn            = "arn:aws:iam::407603399482:role/oe_stacks_iam_role"
     identity_token_file = identity_token.aws.jwt_filename
     default_tags        = { stacks-preview-example = "webapp-aws-stack-production" }
-    user_data           = "/user_data/version_2.txt"
-    prefix              = "prod"
-    theme               = "dog"
+#    user_data           = "/user_data/version_2.txt"
+    prefix              = "Production"
+    theme               = "Dog"
   }
 }
