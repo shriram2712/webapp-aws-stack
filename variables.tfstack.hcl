@@ -16,10 +16,6 @@ variable "default_tags" {
   default     = {}
 }
 
-#variable "user_data" {
-#  type = string
-#}
-
 variable "prefix" {
   description = "This prefix will be included in the name of most resources."
   type = string

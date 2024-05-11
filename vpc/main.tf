@@ -2,7 +2,6 @@ data "aws_availability_zones" "available" {
   state = "available"
 }
 
-# PROJECT DATA SOURCE
 data "aws_availability_zones" "ad" {
   state = "available"
   filter {
@@ -11,8 +10,6 @@ data "aws_availability_zones" "ad" {
   }
 }
 
-
-# VPC
 resource "aws_vpc" "vpc" {
   cidr_block = var.vpc_cidr
   tags = {
@@ -20,8 +17,6 @@ resource "aws_vpc" "vpc" {
   }
 }
 
-
-# SUBNET
 resource "aws_subnet" "sub" {
   vpc_id                  = aws_vpc.vpc.id
   availability_zone       = data.aws_availability_zones.ad.names[0]
@@ -33,7 +28,6 @@ resource "aws_subnet" "sub" {
   timeouts {}
 }
 
-# INTERNET GATEWAY
 resource "aws_internet_gateway" "igw" {
   vpc_id = aws_vpc.vpc.id
   tags   = {
@@ -41,7 +35,6 @@ resource "aws_internet_gateway" "igw" {
   }
 }
 
-# ROUTE TABLE
 resource "aws_route_table" "rt" {
   vpc_id  = aws_vpc.vpc.id
   route  {
@@ -58,7 +51,6 @@ resource "aws_route_table_association" "rt_sub" {
   subnet_id      = aws_subnet.sub.id
 }
 
-# SECURITY GROUP
 resource "aws_security_group" "sg" {
   name        = var.sg_name
   vpc_id      = aws_vpc.vpc.id
@@ -99,33 +91,6 @@ resource "aws_security_group" "sg" {
     ipv6_cidr_blocks = null  # (Optional) List of IPv6 CIDR blocks.
     security_groups  = null   # (Optional) List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
     self             = false # (Optional, default false) If true, the security group itself will be added as a source to this ingress rule.  
-    },
-    {
-    cidr_blocks      = [
-      "0.0.0.0/0",
-    ]
-    description      = "Inbound SSH access"
-    from_port        = 22
-    protocol         = "tcp"
-    security_groups  = []
-    to_port          = 22
-     prefix_list_ids  = null  # (Optional) List of prefix list IDs.
-    ipv6_cidr_blocks = null  # (Optional) List of IPv6 CIDR blocks.
-    security_groups  = null   # (Optional) List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
-    self             = false # (Optional, default false) If true, the security group itself will be added as a source to this ingress rule.        
-    },
-    {
-    cidr_blocks      = [
-      "0.0.0.0/0",
-    ]
-    description      = "Inbound RDP access "
-    from_port        = 3389
-    protocol         = "tcp"
-    to_port          = 3389
-    prefix_list_ids  = null  # (Optional) List of prefix list IDs.
-    ipv6_cidr_blocks = null  # (Optional) List of IPv6 CIDR blocks.
-    security_groups  = null   # (Optional) List of security group Group Names if using EC2-Classic, or Group IDs if using a VPC.
-    self             = false # (Optional, default false) If true, the security group itself will be added as a source to this ingress rule.
     },
   ]
   tags = {
