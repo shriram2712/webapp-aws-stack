@@ -22,6 +22,5 @@ component "ec2" {
   }
   providers = {
     aws       = provider.aws.config
-    template  = provider.template.config
   }
 }
