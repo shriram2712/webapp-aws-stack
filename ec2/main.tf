@@ -37,16 +37,16 @@ resource "aws_instance" "inst" {
   instance_type                = var.instance_type
   associate_public_ip_address  = var.map_public_ip_on_launch
   subnet_id                    = var.subnet_id
-  user_data                    = filebase64("${path.module}/${var.user_data}")
+#  user_data                    = filebase64("${path.module}/${var.user_data}")
 #  user_data                    = "${data.template_file.user_data.rendered}"
-#  user_data                    = templatefile(
-#    "${path.root}/user_data/user_data.tftpl", { 
-#      THEME = "${var.theme}"
-#      WIDTH = "${var.width}"
-#      HEIGHT = "${var.height}"
-#      PREFIX = "${var.prefix}"
-#    }
-#  )
+  user_data                    = templatefile(
+    "${path.root}/user_data/user_data.tftpl", { 
+      THEME = "${var.theme}"
+      WIDTH = "${var.width}"
+      HEIGHT = "${var.height}"
+      PREFIX = "${var.prefix}"
+    }
+  )
   vpc_security_group_ids       = [ var.vpc_dedicated_security_group_id ]  
   metadata_options {
       http_endpoint               = "enabled"
