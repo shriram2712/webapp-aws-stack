@@ -22,15 +22,15 @@ data "aws_ami" "ubuntu" {
   owners = ["099720109477"] # Canonical
 }
 
-#data "template_file" "user_data" {
-#  template = "${file("${path.module}/user_data.tpl")}"
-#  vars = {
-#    THEME   = "${var.theme}"
-#    WIDTH   = "${var.width}"
-#    HEIGHT  = "${var.height}"
-#    PREFIX  = "${var.prefix}"
-#  }
-#}
+data "template_file" "user_data" {
+  template = "${file("${path.module}/user_data.tpl")}"
+  vars = {
+    THEME   = "${var.theme}"
+    WIDTH   = "${var.width}"
+    HEIGHT  = "${var.height}"
+    PREFIX  = "${var.prefix}"
+  }
+}
 
 resource "aws_instance" "inst" {
   ami                          = data.aws_ami.ubuntu.id
