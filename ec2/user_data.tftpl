@@ -7,10 +7,9 @@ sudo apt -y update
 sudo apt -y install apache2
 sudo systemctl start apache2
 sudo chown -R ubuntu:ubuntu /var/www/html
-chmod +x *.sh
 
-# Create the index.html content
-cat << EOM > /var/www/html/index.html
+# Create the index.html content using the variables
+sudo bash -c 'cat << EOM > /var/www/html/index.html
 <html>
   <head><title>${PREFIX}!</title></head>
   <body>
@@ -25,6 +24,4 @@ cat << EOM > /var/www/html/index.html
   </div>
   </body>
 </html>
-EOM
-
-echo "Script complete."
+EOM'
