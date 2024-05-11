@@ -23,7 +23,7 @@ data "aws_ami" "ubuntu" {
 }
 
 data "template_file" "user_data" {
-  template = "${file("${path.module}/user_data.tpl")}"
+  template = file("${path.module}/user_data.tpl")
   vars = {
     THEME   = "${var.theme}"
     WIDTH   = "${var.width}"
