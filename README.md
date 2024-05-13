@@ -6,7 +6,7 @@ use Stacks for production workloads at this time._
 
 ![webapp-aws-stack](./aws_webapp_stack.png)
 
-This stack provisions an AWS virtual private cloud (VPC) and EC2 instance with the latest Ubuntu AMI running a basic web application. The different deployments have minor differences between them including a different `aws_region` and `user_data` file, which creates a seperate application based on the inputs. 
+This stack provisions an AWS virtual private cloud (VPC) and EC2 instance with the latest Ubuntu AMI running a basic web application. The different deployments have minor differences between them including a different `aws_region`, `theme`, and `prefix`. Changing the `theme` variable in the `deployments.tfdeploy.hcl` file will alter the results of the page that is deployed. Enter in your favorite animal as the theme - you can decide which would go in the higher or lower tier enviroment :grin:. 
 
 Two components are used:
 
@@ -36,6 +36,5 @@ identity provider. Details of all of this are found in the provided Stacks User 
    to use for the purposes of logging in to the created EC2 instances (import your own SSH public
    key in the AWS console under EC2 -> Key Pairs -> Import Key Pair)
 4. **Create a new stack** in Terraform Cloud and connect it to your forked configuration repository.
-5. **Provision away!** Once applied, look at the `public_ip` attribute for the
-   one of the `aws_instance` resources. Using your local SSH key, you should be able to log in to
-   the Ubuntu console for that instance via `ssh ubuntu@<public-ip-of-ec2-instance`.
+5. **Provision away!** Once applied, look at the `public_ip` attribute for
+   one of the `aws_instance` resources. Wait about 2-3 minutes and enter that `public_ip` in your browser and you will see a basic website created from those input variables. Check both deployments.  
