@@ -24,3 +24,9 @@ deployment "production" {
     theme               = "dog"
   }
 }
+
+orchestrate "auto_approve" "prod_apply" {
+  check {
+    condition = context.operation == "plan" && context.plan.deployment.name == "production"
+  }
+}
