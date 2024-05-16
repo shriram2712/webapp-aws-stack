@@ -23,8 +23,6 @@ deployment "production" {
     prefix              = "production"
     theme               = "dog"
   }
-
-  depends_on = [deployment.staging]
 }
 
 orchestrate "auto_approve" "prod_apply" {
