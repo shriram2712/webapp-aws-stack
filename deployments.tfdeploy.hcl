@@ -30,4 +30,6 @@ orchestrate "auto_approve" "prod_apply" {
     condition = context.operation == "plan" && context.plan.deployment.name == "production"
     error_message = "Not a prod apply"
   }
+
+  depends_on = [deployment.staging]
 }
