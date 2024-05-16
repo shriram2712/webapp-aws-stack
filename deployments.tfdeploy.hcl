@@ -23,6 +23,8 @@ deployment "production" {
     prefix              = "production"
     theme               = "dog"
   }
+
+  depends_on = [deployment.staging]
 }
 
 orchestrate "auto_approve" "prod_apply" {
@@ -30,6 +32,11 @@ orchestrate "auto_approve" "prod_apply" {
     condition = context.operation == "plan" && context.plan.deployment.name == "production"
     error_message = "Not a prod apply"
   }
+}
 
-  depends_on = [deployment.staging]
+orchestrate "auto_approve" "staging_apply" {
+  check {
+    condition = context.operation == "plan" && context.plan.deployment.name == "staging"
+    error_message = "Not a staging apply"
+  }
 }
